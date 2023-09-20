@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/os_ex4.dir/PhysicalMemory.cpp.o CMakeFiles/os_ex4.dir/SimpleTest.cpp.o CMakeFiles/os_ex4.dir/VirtualMemory.cpp.o  -o os_ex4 
