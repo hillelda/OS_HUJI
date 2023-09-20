@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/H/CLionProjects/os_ex2/resources/demo_itimer.c
+stdio.h
+-
+signal.h
+-
+sys/time.h
+-
+
+/mnt/c/Users/H/CLionProjects/os_ex2/resources/demo_jmp.c
+stdio.h
+-
+setjmp.h
+-
+signal.h
+-
+unistd.h
+-
+sys/time.h
+-
+stdbool.h
+-
+
+/mnt/c/Users/H/CLionProjects/os_ex2/resources/demo_singInt_handler.c
+stdio.h
+-
+signal.h
+-
+unistd.h
+-
+

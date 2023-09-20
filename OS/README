@@ -1,0 +1,36 @@
+giladhare, hilleld
+Gilad Harel 208242610, Hillel Darshan 208243097
+
+Exercise 1
+**********************************
+            FILES
+**********************************
+Makefile - makefile for libosm.
+graph.png - graph of run-time of operations on different platforms.
+osm.cpp - libosm code.
+README - this file.
+
+*****************************
+        Assigment 1
+*****************************
+The program opens a directory ./welcome_dir_1, and than opens another
+directory, ./welcome_dir_1/welcome_dir_2 in the first one, both with 0777
+permissions (full permissions).
+Then, the program allocates memory with the brk command. (let the program read
+and write from a certain segment of the heap).
+Then, the program opens a file welcome_file.txt in the previous dir:
+"./welcome_dir_1/welcome_dir_2/", for write only, creates the file if doesn't
+exist, and truncate if does. The file with 666 permissions (full read/write
+permission but no execute).
+Then, the program opens the /etc/localtime file, for read purpose (and with
+close at exec flag, meaning it will close in the next exec). It reads
+from the file into buffer (twice), followed by two fstat calls that returns
+information about the and /etc/localtime file. Between the read commands, it
+changes the /etc/localtime file offset using lseek. Then it closes the
+/etc/localtime file.
+Next, the program use fstat to retrieve inforamtion about welcome_file.txt,
+it writes "welcome to OS-2023" into it, closes it, and deletes it.
+Then the program tries to delete /welcome_dir_2, but gets an error because
+its a directory. Then the program removes it successfully. The same process
+happens with /welcome_dir_1 (error in delete and remove).
+Finally, the program exits with exit-code 0.

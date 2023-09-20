@@ -1,0 +1,66 @@
+giladhare, hilleld
+Gilad Harel 208242610, Hillel Darshan 208243097
+
+Exercise 2
+**********************************
+            FILES
+**********************************
+Thread.h
+utils.h
+uthreads.cpp
+README - this file.
+
+*****************************
+        Part 1
+*****************************
+1.
+    a.  both functions are involved in performing a nonlocal goto:
+        I. sigsetjmp:
+            saves the current PCB info in a buffer, and returns 0
+            on success.
+        II. siglongjmp:
+            restores the PCB from the buffer, so we can continue from
+             where sigsetjmp() was called and saved the PCB into the
+             buffer given to siglongjmp() as an arg.
+    b. iff the savesigs arg of sigsetjmp() != 0, the process's
+        current signal mask is saved in the buffer with the PCB info,
+         and will be restored if a siglongjmp() is later performed
+         with this buffer.
+
+2. A program that doesn't use I\O functions, and we want it to run on
+    a lot of different kinds of OS without having to re-program the
+    program for every OS uniquely.
+    It is a reasonable choice to use user-level threads in this
+    situation because the overhead of a blocked process waiting for
+     I\O doesn't happen often, and we have the advantage of
+     compatibility for all OS that can run the main program.
+
+3.  Advantages of a new process:
+    - better security (unique memory for every process).
+    - Suspension of a process does not affect other processes.
+    Advantages of kernel-level threads:
+    - faster switching between jobs.
+    - faster to create.
+    - more memory efficient.
+
+4. Kill command:
+
+The keyboard evoked an I/O interrupt to the OS, that sent the info to
+the Shell. The Shell process sent a kill signal to the Shotwell process, using
+the OS to do so. The OS killed the Shotwell process.
+
+
+
+
+5. Real vs. Virtual time:
+
+Real time counts down in real (i.e., wall clock) time.
+For example, if we want to play a video in 24 frames per second speed, we
+should use real time measurement - the human eye doesn't care what is happening
+in the CPU and what thread is running...
+
+Virtual time counts down against the user-mode CPU  time  consumed
+by  the process.
+For example, if we want to be fair in timing user level threads, this is the
+time that makes more sense using - we are measuring the actual amount of time
+in the CPU that our process was running.s
