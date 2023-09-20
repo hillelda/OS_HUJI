@@ -1,0 +1,17 @@
+giladhare, hilleld
+Gilad Harel 208242610, Hillel Darshan 208243097
+
+Exercise 3
+**********************************
+            FILES
+**********************************
+
+README - this file.
+Makefile
+MapReduceFramework.cpp - library for MapReduce using kernel level threads.
+Barrier.h
+Barrier.cpp
+
+**********************************
+END
+**********************************

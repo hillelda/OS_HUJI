@@ -1,0 +1,1 @@
+/usr/bin/c++  -pthread -g   CMakeFiles/OS_ex3.dir/Resources/MapReduceFramework.cpp.o CMakeFiles/OS_ex3.dir/tests/test2.cpp.o  -o OS_ex3 
